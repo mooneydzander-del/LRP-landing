@@ -1,0 +1,437 @@
+/* ============================================================
+   LPR LANDING PAGE SYSTEM - CORE DESIGN SYSTEM & LAYOUT
+   ============================================================ */
+
+/* ── Typography & Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Custom Theme Tokens (Gold & Obsidian Nebula) ── */
+:root {
+  /* Color Palette */
+  --color-bg-base: #060608;
+  --color-bg-surface: #0c0d12;
+  --color-bg-surface-elevated: #14161f;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-glow: rgba(230, 200, 117, 0.2);
+
+  --color-text-main: #f3f4f6;
+  --color-text-muted: #9ca3af;
+  --color-text-dim: #6b7280;
+
+  /* Accent Tones */
+  --color-gold: #e6c875;
+  --color-gold-bright: #ffdf85;
+  --color-gold-dark: #b8860b;
+  --color-cyan: #00f0ff;
+  --color-cyan-glow: rgba(0, 240, 255, 0.35);
+  --color-purple: #8a2be2;
+  --color-purple-glow: rgba(138, 43, 226, 0.3);
+
+  /* Gradients */
+  --grad-gold: linear-gradient(135deg, var(--color-gold) 0%, #b8860b 100%);
+  --grad-cyan-purple: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-purple) 100%);
+  --grad-dark-glow: radial-gradient(circle at 50% 50%, rgba(230, 200, 117, 0.08) 0%, transparent 70%);
+  --grad-nebula-blue: radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 50%);
+  --grad-nebula-violet: radial-gradient(circle at 90% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 60%);
+
+  /* Typography Scale */
+  --font-display: 'Montserrat', sans-serif;
+  --font-sub: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Layout Constants */
+  --max-width-site: 1280px;
+  --header-height: 80px;
+  --radius-lg: 16px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* ── Reset & Baseline ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: initial; /* Lenis handles smooth scrolling */
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--color-bg-base);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Typography Styling ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #fff;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+.text-gradient-gold {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan {
+  background: var(--grad-cyan-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Layout Grid & Utilities ── */
+.container {
+  width: 100%;
+  max-width: var(--max-width-site);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Custom Button Component (Cinematic Design) ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sub);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.btn--cinema {
+  background: var(--grad-gold);
+  color: #000;
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 4px 20px rgba(230, 200, 117, 0.2);
+}
+
+.btn--cinema::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn--cinema:hover {
+  box-shadow: 0 6px 30px rgba(230, 200, 117, 0.45);
+  transform: translateY(-2px);
+  color: #000;
+}
+
+.btn--cinema:hover::before {
+  left: 100%;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-gold);
+  background: rgba(230, 200, 117, 0.05);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn--full {
+  display: flex;
+  width: 100%;
+}
+
+.btn--sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+}
+
+.btn--xl {
+  padding: 1.15rem 3rem;
+  font-size: 1.05rem;
+  border-radius: 4px;
+}
+
+/* ── Section Scenes (Structure) ── */
+.scene {
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.scene-eyebrow {
+  font-family: var(--font-sub);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.scene-title {
+  margin-bottom: 1.5rem;
+}
+
+.scene-sub {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ── Custom Navigation Header ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: var(--color-border);
+  background: rgba(6, 6, 8, 0.8);
+  transition: var(--transition-smooth);
+}
+
+.nav__inner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: -0.05em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-gold);
+  margin-left: 4px;
+  border-radius: 50%;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav__link {
+  font-family: var(--font-sub);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.nav__link:hover {
+  color: #fff;
+}
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: var(--transition-fast);
+}
+
+.nav__toggle span:nth-child(1) { top: 0; }
+.nav__toggle span:nth-child(2) { top: 9px; }
+.nav__toggle span:nth-child(3) { top: 18px; }
+
+@media (max-width: 768px) {
+  .nav__links {
+    display: none; /* Javascript will handle responsive overlay */
+  }
+  .nav__toggle {
+    display: block;
+  }
+}
+
+/* ── Footer ── */
+.site-footer {
+  background-color: #030304;
+  border-top: var(--color-border);
+  padding: 80px 0 40px 0;
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 10;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-footer__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.2rem;
+  letter-spacing: -0.05em;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.site-footer__logo::after {
+  content: '.';
+  color: var(--color-gold);
+}
+
+.site-footer__tag {
+  font-family: var(--font-sub);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+}
+
+.site-footer__nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-footer__link {
+  font-family: var(--font-sub);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.site-footer__link:hover {
+  color: #fff;
+}
+
+.site-footer__copy {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+}

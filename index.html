@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LPR | Cinematic Landing Pages for Paid Traffic</title>
+  
+  <!-- SEO Optimization -->
+  <meta name="description" content="LPR designs and builds ultra-high converting, cinematic landing pages for paid traffic. Turn Google, Facebook, and TikTok ad clicks into instant, trackable customer inquiries in 48 hours." />
+  <meta name="keywords" content="landing page, cinematic web design, paid traffic conversion, lead generation, CRO, marketing page, GSAP animations" />
+  
+  <!-- Social Media OpenGraph -->
+  <meta property="og:title" content="LPR | Cinematic Landing Pages for Paid Traffic" />
+  <meta property="og:description" content="Stop wasting ad spend. LPR builds premium, single-offer landing pages optimized to capture leads instantly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://zandermooney.com/assets/og-preview.png" />
+  <meta property="og:url" content="https://zandermooney.com" />
+  
+  <!-- Style sheets -->
+  <link rel="stylesheet" href="src/css/main.css" />
+  <link rel="stylesheet" href="src/css/cinematic.css" />
+  
+  <!-- Inline styles for custom scene elements not covered in standard main/cinematic css -->
+  <style>
+    /* Scene 1 (Opening) CSS */
+    .s-opening {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 120px;
+      position: relative;
+    }
+    
+    .s-opening__inner {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    .lpr-brand-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .lpr-primary {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      background: var(--grad-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 30px rgba(230, 200, 117, 0.2));
+    }
+    
+    .lpr-rollout {
+      font-family: var(--font-sub);
+      font-size: clamp(0.7rem, 2vw, 1.1rem);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+    }
+    
+    .s-opening__headline {
+      max-width: 820px;
+      margin: 0 auto 2rem auto;
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    }
+    
+    .s-opening__headline em {
+      font-style: normal;
+      background: var(--grad-cyan-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .s-opening__sub {
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+    
+    .s-opening__cta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .s-opening__panels {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+    
+    .ui-panel {
+      position: absolute;
+      background: rgba(14, 15, 19, 0.75);
+      border: 1px solid var(--color-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.85rem 1.5rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .ui-panel__body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .ui-panel__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+    }
+    
+    .ui-panel__value {
+      font-family: var(--font-sub);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .ui-panel--lead {
+      top: 25%;
+      left: 8%;
+      border-color: rgba(0, 240, 255, 0.25);
+    }
+    
+    .ui-panel__pulse {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-cyan);
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .ui-panel__pulse::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-cyan);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      animation: pulse-ring 2s infinite ease-out;
+    }
+    
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3.5); opacity: 0; }
+    }
+    
+    .ui-panel__check {
+      color: var(--color-gold);
+      font-weight: 900;
+    }
+    
+    .ui-panel--metric {
+      bottom: 25%;
+      right: 10%;
+      border-color: rgba(230, 200, 117, 0.25);
+    }
+    
+    .ui-panel__metric {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--color-gold);
+      line-height: 1;
+    }
+    
+    .ui-panel--status {
+      top: 18%;
+      right: 15%;
+      padding: 0.5rem 1rem;
+    }
+    
+    .ui-panel__dot {
+      width: 6px;
+      height: 6px;
+      background-color: #22c55e;
+      border-radius: 50%;
+    }
+    
+    @media (max-width: 1024px) {
+      .ui-panel {
+        display: none !important; /* Hide floating UI panels on smaller viewports */
+      }
+    }
+    
+    /* Scene 2 (The Friction / Problem) CSS */
+    .s-problem__inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    
+    @media (max-width: 992px) {
+      .s-problem__inner {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+    }
+    
+    .s-problem__mockup {
+      background: #0d0e12;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    
+    .flat-site {
+      background-color: #fff;
+      color: #1f2937;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      font-family: sans-serif;
+    }
+    
+    .flat-site__bar {
+      background-color: #f3f4f6;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .flat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #d1d5db;
+      display: inline-block;
+    }
+    
+    .flat-url {
+      font-size: 0.65rem;
+      color: #9ca3af;
+      margin-left: 1rem;
+    }
+    
+    .flat-site__body {
+      padding: 1.5rem;
+    }
+    
+    .flat-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .flat-logo {
+      width: 45px;
+      height: 12px;
+      background-color: #d1d5db;
+      border-radius: var(--radius-sm);
+    }
+    
+    .flat-nav-links {
+      width: 140px;
+      height: 10px;
+      background-color: #e5e7eb;
+      border-radius: var(--radius-sm);
+    }
+    
+    .flat-hero-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .flat-h1 {
+      width: 80%;
+      height: 18px;
+      background-color: #9ca3af;
+      margin-bottom: 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+    
+    .flat-h2 {
+      width: 60%;
+      height: 12px;
+      background-color: #d1d5db;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-sm);
+    }
+    
+    .flat-btn-fake {
+      width: 90px;
+      height: 25px;
+      background-color: #3b82f6;
+      border-radius: var(--radius-sm);
+    }
+    
+    .flat-cards-row {
+      display: flex;
+      gap: 0.8rem;
+    }
+    
+    .flat-card {
+      flex: 1;
+      height: 45px;
+      background-color: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-sm);
+    }
+    
+    .flat-warn {
+      position: absolute;
+      background-color: #ef4444;
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    }
+    
+    .flat-warn::before {
+      content: '⚠ ';
+    }
+    
+    .flat-warn--a { top: 12%; left: -5%; }
+    .flat-warn--b { top: 38%; right: -5%; }
+    .flat-warn--c { bottom: 25%; left: 10%; }
+    .flat-warn--d { bottom: 8%; right: 5%; }
+    
+    .problem-points {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .prob-pt {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .prob-pt__dash {
+      color: #ef4444;
+      font-weight: 700;
+    }
+    
+    /* Scene 3 (The Transformation / Pinned Comparison) CSS */
+    .s-transform {
+      position: relative;
+    }
+    
+    .s-transform__wrap {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .t-progress {
+      position: absolute;
+      left: 3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+      z-index: 20;
+    }
+    
+    .t-progress__track {
+      width: 2px;
+      height: 180px;
+      background-color: rgba(255,255,255,0.08);
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+    
+    .t-progress__fill {
+      width: 100%;
+      height: 0%;
+      background: var(--grad-gold);
+      box-shadow: 0 0 8px rgba(230, 200, 117, 0.8);
+      transition: height 0.3s ease-out;
+    }
+    
+    .t-progress__dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--color-bg-base);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition-fast);
+    }
+    
+    .t-progress__dot--active {
+      border-color: var(--color-gold);
+      background-color: var(--color-gold);
+      box-shadow: 0 0 10px rgba(230, 200, 117, 0.6);
+    }
+    
+    .t-stage {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 6rem;
+      align-items: center;
+      width: 100%;
+      padding-left: 7rem;
+      padding-right: 3rem;
+    }
+    
+    @media (max-width: 992px) {
+      .t-progress { display: none; }
+      .t-stage {
+        grid-template-columns: 1fr;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+    
+    .t-copy-column {
+      position: relative;
+      height: 250px;
+    }
+    
+    .t-copy {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .t-copy.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    
+    .t-headline {
+      margin-bottom: 1.25rem;
+    }
+    
+    .t-sub {
+      font-size: 1.05rem;
+    }
+    
+    .t-visual-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 400px;
+    }
+    
+    .t-mockup {
+      width: 100%;
+      max-width: 520px;
+      height: 340px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .t-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: scale(0.95) rotateY(-5deg);
+      pointer-events: none;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .t-layer.is-active {
+      opacity: 1;
+      transform: scale(1) rotateY(0deg);
+      pointer-events: auto;
+    }
+    
+    .tsite {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .tsite--flat {
+      background-color: #f9fafb;
+      color: #111827;
+      border-color: rgba(0,0,0,0.05);
+    }
+    
+    .tsite__bar {
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .tsite__bar--light { background-color: #f3f4f6; }
+    .tsite__bar--dark {
+      background-color: #0c0d12;
+      border-bottom-color: rgba(255,255,255,0.05);
+    }
+    
+    .td {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .td--r { background-color: #ef4444; }
+    .td--y { background-color: #f59e0b; }
+    .td--g { background-color: #10b981; }
+    
+    .tsite__url-light { font-size: 0.65rem; color: #6b7280; margin-left: 1rem; font-family: monospace; }
+    .tsite__url-dark { font-size: 0.65rem; color: var(--color-text-dim); margin-left: 1rem; font-family: monospace; }
+    
+    .tsite__body {
+      padding: 1.5rem;
+      height: calc(100% - 37px);
+      position: relative;
+    }
+    
+    .tsite__body--light {
+      background-color: #fff;
+    }
+    
+    .tsite__body--dark {
+      background-color: #060608;
+    }
+    
+    .tsite__nav-light {
+      width: 100%;
+      height: 12px;
+      background-color: #f3f4f6;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .tsite__hero-light {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    
+    .tsite__h1-light {
+      width: 85%;
+      height: 20px;
+      background-color: #e5e7eb;
+      border-radius: var(--radius-sm);
+    }
+    
+    .tsite__btn-light {
+      width: 100px;
+      height: 25px;
+      background-color: #e5e7eb;
+      border-radius: var(--radius-sm);
+    }
+    
+    .tsite__cards-light {
+      display: flex;
+      gap: 0.8rem;
+    }
+    
+    .tsite__card-light {
+      flex: 1;
+      height: 60px;
+      background-color: #f3f4f6;
+      border-radius: var(--radius-sm);
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* Dark site styles */
+    .tsite__grain {
+      position: absolute;
+      inset: 0;
+      background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="ns"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23ns)"/%3E%3C/svg%3E') repeat;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    
+    .tsite__hero-dark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      position: relative;
+    }
+    
+    .tsite__glow-spot {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(230, 200, 117, 0.15) 0%, transparent 70%);
+      filter: blur(10px);
+    }
+    
+    .tsite__h1-dark {
+      width: 70%;
+      height: 28px;
+      background: var(--grad-gold);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.8rem;
+      box-shadow: 0 0 10px rgba(230, 200, 117, 0.2);
+    }
+    
+    .tsite__sub-dark {
+      width: 50%;
+      height: 10px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.5rem;
+    }
+    
+    .tsite__btn-dark {
+      width: 130px;
+      height: 34px;
+      background: var(--grad-gold);
+      border: 1px solid var(--color-gold);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 15px rgba(230, 200, 117, 0.35);
+    }
+    
+    /* Stage 3 Leads form site */
+    .tsite__hero-sm {
+      height: 35%;
+    }
+    
+    .tsite__h1-sm {
+      width: 45%;
+      height: 15px;
+      margin-bottom: 0;
+    }
+    
+    .tsite__lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      width: 80%;
+      margin: 1rem auto 0 auto;
+    }
+    
+    .tlf__field {
+      width: 100%;
+      height: 26px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+    }
+    
+    .tlf__btn {
+      width: 100%;
+      height: 30px;
+      background: var(--grad-cyan-purple);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+    }
+    
+    .tsite__lead-alert {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 240, 255, 0.15);
+      border: 1px solid var(--color-cyan);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      animation: form-alert-wiggle 3s infinite ease;
+    }
+    
+    @keyframes form-alert-wiggle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    .tla__pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-cyan);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--color-cyan);
+    }
+    
+    .tla__text {
+      font-family: var(--font-sub);
+      font-size: 0.65rem;
+      color: #fff;
+      font-weight: 600;
+    }
+    
+    /* Stage 4 Complete site */
+    .tsite--complete {
+      border-color: rgba(230, 200, 117, 0.25);
+    }
+    
+    .tsite__complete-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(230, 200, 117, 0.1) 0%, transparent 60%);
+    }
+    
+    .tsite__h1-gold {
+      width: 70%;
+      height: 28px;
+      background: var(--grad-gold);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.8rem;
+      box-shadow: 0 0 15px rgba(230, 200, 117, 0.45);
+    }
+    
+    .tsite__btn-gold {
+      width: 140px;
+      height: 38px;
+      background: var(--grad-gold);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 6px 20px rgba(230, 200, 117, 0.45);
+    }
+    
+    .tsite__complete-badge {
+      position: absolute;
+      bottom: 20px;
+      background-color: #22c55e;
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+    }
+    
+    /* Scene 4 (Anatomy / Reel) CSS */
+    .s-reel {
+      background-color: #030304;
+      position: relative;
+    }
+    
+    .reel__pin {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 4% 0;
+    }
+    
+    .reel__hdr {
+      padding-left: 6.5rem;
+      margin-bottom: 3.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .reel__hdr { padding-left: 2rem; }
+    }
+    
+    .reel__title {
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+    }
+    
+    .reel__viewport {
+      width: 100%;
+      overflow: visible;
+      padding-left: 6.5rem;
+      z-index: 10;
+    }
+    
+    @media (max-width: 768px) {
+      .reel__viewport { padding-left: 2rem; }
+    }
+    
+    .reel__track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+    }
+    
+    .film-card {
+      width: 320px;
+      background: var(--color-bg-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    
+    .film-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    
+    .film-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(230, 200, 117, 0.25);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+    
+    .film-card__num {
+      font-family: var(--font-sub);
+      font-size: 0.95rem;
+      color: var(--color-gold);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    
+    .film-card__icon {
+      font-size: 1.75rem;
+      color: #fff;
+      margin-bottom: 1.25rem;
+    }
+    
+    .film-card__title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .film-card__text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .reel__progress {
+      position: absolute;
+      bottom: 8%;
+      left: 6.5rem;
+      right: 6.5rem;
+      height: 2px;
+      background-color: rgba(255,255,255,0.05);
+    }
+    
+    @media (max-width: 768px) {
+      .reel__progress { left: 2rem; right: 2rem; }
+    }
+    
+    .reel__progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--grad-gold);
+      box-shadow: 0 0 6px rgba(230, 200, 117, 0.6);
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Scene 5 (Pipeline) CSS */
+    .pipeline {
+      margin-top: 5rem;
+      position: relative;
+      padding: 40px 0;
+    }
+    
+    .pipeline__track {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+    
+    @media (max-width: 768px) {
+      .pipeline__track {
+        flex-direction: column;
+        gap: 3.5rem;
+        align-items: flex-start;
+        padding-left: 2rem;
+      }
+    }
+    
+    .pipeline__rail {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background-color: rgba(255,255,255,0.05);
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+    
+    @media (max-width: 768px) {
+      .pipeline__rail {
+        left: 36px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: 100%;
+        transform: none;
+      }
+    }
+    
+    .pipeline__fill {
+      height: 100%;
+      width: 0%;
+      background: var(--grad-cyan-purple);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+      transition: width 0.1s ease-out;
+    }
+    
+    @media (max-width: 768px) {
+      .pipeline__fill {
+        width: 100%;
+        height: 0%;
+        transition: height 0.1s ease-out;
+      }
+    }
+    
+    .pipeline__nodes {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    
+    @media (max-width: 768px) {
+      .pipeline__nodes {
+        flex-direction: column;
+        gap: 3.5rem;
+      }
+    }
+    
+    .p-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+      .p-node {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+    }
+    
+    .p-node__orb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--color-bg-base);
+      border: 2px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    
+    .p-node__orb span {
+      line-height: 1;
+    }
+    
+    .p-node__label {
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-dim);
+      font-weight: 500;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+    
+    /* Pipeline node active state */
+    .p-node--active .p-node__orb {
+      border-color: var(--color-cyan);
+      box-shadow: 0 0 15px var(--color-cyan-glow);
+      color: #fff;
+      transform: scale(1.15);
+    }
+    
+    .p-node--active .p-node__label {
+      color: #fff;
+    }
+    
+    .pipeline__cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 4.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .pipeline__cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    .pl-card {
+      background: var(--color-bg-surface-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 250px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .pl-card--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .pl-card--alert {
+      border-color: rgba(0, 240, 255, 0.2);
+    }
+    
+    .pl-card__pulse {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-cyan);
+      border-radius: 50%;
+      position: relative;
+    }
+    
+    .pl-card__pulse::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-cyan);
+      border-radius: 50%;
+      animation: pulse-ring 2s infinite ease-out;
+    }
+    
+    .pl-card__body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .pl-card__title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .pl-card__sub {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+    }
+    
+    .pl-card--saved {
+      border-color: rgba(230, 200, 117, 0.2);
+    }
+    
+    .pl-saved__check {
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+    
+    /* Scene 6 (Process Chronology) CSS */
+    .process-timeline {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      padding: 40px 0;
+    }
+    
+    .process-timeline__spine {
+      position: absolute;
+      left: 31px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: rgba(255,255,255,0.05);
+      z-index: 1;
+    }
+    
+    .process-spine__fill {
+      width: 100%;
+      height: 0%;
+      background: var(--grad-gold);
+      box-shadow: 0 0 8px rgba(230, 200, 117, 0.6);
+      transition: height 0.1s ease-out;
+    }
+    
+    .pt-item {
+      display: flex;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 5rem;
+    }
+    
+    .pt-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .pt-item__marker {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: var(--color-bg-base);
+      border: 2px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+    
+    .pt-item__num {
+      font-family: var(--font-sub);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-dim);
+    }
+    
+    .pt-item__body {
+      flex: 1;
+      padding-top: 0.8rem;
+    }
+    
+    .pt-item__title {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      transition: var(--transition-fast);
+    }
+    
+    .pt-item__text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Timeline item active states */
+    .pt-item--active .pt-item__marker {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 15px rgba(230, 200, 117, 0.15);
+      transform: scale(1.05);
+    }
+    
+    .pt-item--active .pt-item__num {
+      color: #fff;
+    }
+    
+    .pt-item--active .pt-item__title {
+      color: var(--color-gold);
+    }
+    
+    /* Scene 7 (Pricing Packages) CSS */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+    }
+    
+    @media (max-width: 768px) {
+      .pkg-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+    
+    .pkg {
+      background: var(--color-bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    
+    .pkg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    
+    .pkg:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    .pkg--premium {
+      border-color: rgba(230, 200, 117, 0.2);
+    }
+    
+    .pkg--premium:hover {
+      border-color: rgba(230, 200, 117, 0.45);
+      box-shadow: 0 15px 40px rgba(230, 200, 117, 0.06);
+    }
+    
+    .pkg__glow-border {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      border: 1px solid transparent;
+      pointer-events: none;
+      box-shadow: inset 0 0 15px rgba(230, 200, 117, 0.05);
+    }
+    
+    .pkg__eyebrow {
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+    
+    .pkg__eyebrow--orange {
+      color: var(--color-gold);
+    }
+    
+    .pkg__name {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .pkg__price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .pkg__price {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: #fff;
+    }
+    
+    .pkg__cycle {
+      font-family: var(--font-sub);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    
+    .pkg__tagline {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .pkg__timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.03);
+      padding: 0.85rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .pkg__month {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .pkg__month-name {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+    
+    .pkg__month-amt {
+      font-family: var(--font-sub);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .pkg__month--free .pkg__month-amt {
+      color: #22c55e;
+    }
+    
+    .pkg__features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .pkg__features li {
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .pkg__features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+    
+    .btn--pkg-standard {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    
+    .btn--pkg-standard:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+    
+    .pkg-note {
+      text-align: center;
+      font-size: 0.85rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Scene 8 (FAQ accordion) CSS */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    
+    .faq-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-fast);
+    }
+    
+    .faq-item:hover {
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.03);
+    }
+    
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      gap: 1.5rem;
+    }
+    
+    .faq-icon {
+      font-family: monospace;
+      font-size: 1.3rem;
+      color: var(--color-gold);
+      transition: transform 0.2s ease;
+    }
+    
+    .faq-answer {
+      padding: 0 2rem 1.75rem 2rem;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Scene 9 (Form Portal) CSS */
+    .s-request {
+      position: relative;
+    }
+    
+    .s-request__bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(230, 200, 117, 0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    
+    .req-form {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--color-bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      box-shadow: 0 35px 80px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 10;
+    }
+    
+    @media (max-width: 768px) {
+      .req-form {
+        padding: 2.25rem 1.5rem;
+      }
+    }
+    
+    .c-form-error {
+      background-color: rgba(239, 68, 68, 0.15);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    .c-form-success {
+      background-color: rgba(34, 197, 94, 0.15);
+      border: 1px solid #22c55e;
+      color: #86efac;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .c-form-success__icon {
+      font-size: 1.3rem;
+      margin-right: 0.5rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    .req-group {
+      margin-bottom: 3.5rem;
+    }
+    
+    .req-group:nth-last-child(2) {
+      margin-bottom: 2.5rem;
+    }
+    
+    .req-group__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding-bottom: 0.75rem;
+    }
+    
+    .req-group__num {
+      font-family: var(--font-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      background-color: rgba(230, 200, 117, 0.08);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(230, 200, 117, 0.15);
+    }
+    
+    .req-group__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 0;
+      }
+      .form-row .form-group {
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    .req-label {
+      font-family: var(--font-sub);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+    
+    .req-opt {
+      color: var(--color-text-dim);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    
+    .req-form input[type="text"],
+    .req-form input[type="email"],
+    .req-form input[type="tel"],
+    .req-form select,
+    .req-form textarea {
+      width: 100%;
+      background-color: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.25rem;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: var(--transition-fast);
+      outline: none;
+    }
+    
+    .req-form select {
+      appearance: none;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"%3E%3Cpath fill="%239ca3af" d="M0 0l5 5 5-5z"/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-position: right 1.25rem center;
+    }
+    
+    .req-form select option {
+      background-color: var(--color-bg-surface-elevated);
+      color: #fff;
+    }
+    
+    .req-form input:focus,
+    .req-form select:focus,
+    .req-form textarea:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 10px rgba(230, 200, 117, 0.15);
+      background-color: rgba(255,255,255,0.04);
+    }
+    
+    /* Input error indicator */
+    .req-form .req-input--error {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.2) !important;
+    }
+    
+    .req-submit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .req-note {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+    }
+    
+    .form-spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 0.8s linear infinite;
+      display: inline-block;
+      margin-right: 0.75rem;
+      vertical-align: middle;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Scene 10 (Finale CTA) CSS */
+    .s-finale {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .s-finale__glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(230, 200, 117, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    .s-finale__beam {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--color-gold) 0%, transparent 100%);
+      opacity: 0.2;
+    }
+    
+    .s-finale__inner {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    .s-finale__headline {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      margin-bottom: 3.5rem;
+    }
+    
+    .s-finale__headline em {
+      font-style: normal;
+      background: var(--grad-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grain & Vignette cinematic overlays -->
+  <div class="c-grain" aria-hidden="true"></div>
+  <div class="c-vignette" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Atmospheric Background Canvas -->
+  <div class="scene-atmosphere">
+    <canvas id="stellar-canvas" class="stellar-canvas"></canvas>
+    <div class="nebula-glow nebula-glow--cyan" aria-hidden="true"></div>
+    <div class="nebula-glow nebula-glow--purple" aria-hidden="true"></div>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION HEADER
+  ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#opening" class="nav__logo">LPR</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links" id="nav-links" aria-label="Main navigation">
+        <a href="#problem" class="nav__link">The Friction</a>
+        <a href="#transform" class="nav__link">How It Works</a>
+        <a href="#experience" class="nav__link">What We Build</a>
+        <a href="#packages" class="nav__link">Investment</a>
+        <a href="#request" class="btn btn--cinema btn--sm">Initiate Page Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SCENE 1 — HERO / OPENING
+  ============================================================ -->
+  <section class="scene s-opening" id="opening">
+    <!-- Starfield overlays -->
+    <div class="s-opening__starfield" aria-hidden="true">
+      <div class="star-layer star-layer--1"></div>
+      <div class="star-layer star-layer--2"></div>
+    </div>
+
+    <!-- Orbit background decorations -->
+    <div class="s-opening__orbits" aria-hidden="true">
+      <div class="orbit-ring orbit-ring--1"></div>
+      <div class="orbit-ring orbit-ring--2"></div>
+    </div>
+
+    <!-- Light rays -->
+    <div class="s-opening__rays" aria-hidden="true">
+      <span class="s-ray s-ray--1"></span>
+      <span class="s-ray s-ray--2"></span>
+      <span class="s-ray s-ray--3"></span>
+      <span class="s-ray s-ray--4"></span>
+    </div>
+    <div class="s-opening__glow" aria-hidden="true"></div>
+
+    <div class="container s-opening__inner">
+      <div class="lpr-brand-block">
+        <div class="lpr-primary">LPR</div>
+        <div class="lpr-rollout">Landing Page Rocket</div>
+      </div>
+
+      <h1 class="s-opening__headline">
+        Your Ads Earned the Click.<br />
+        <em>We Build the Page that Captures the Lead.</em>
+      </h1>
+
+      <p class="s-opening__sub">
+        High-performance, ultra-cinematic landing pages designed for paid traffic. We eliminate distractions, lock down your offer, and convert ad clicks into instant, trackable inquiries.
+      </p>
+
+      <div class="s-opening__cta">
+        <a href="#request" class="btn btn--cinema btn--xl">Initiate Page Build</a>
+        <a href="#problem" class="btn btn--ghost btn--xl">See How LPR Works</a>
+      </div>
+    </div>
+
+    <!-- Floating Dashboard Panels (Visual CRO metrics) -->
+    <div class="s-opening__panels" aria-hidden="true">
+      <div class="ui-panel ui-panel--lead">
+        <span class="ui-panel__pulse"></span>
+        <div class="ui-panel__body">
+          <span class="ui-panel__label">Inquiry Captured</span>
+          <span class="ui-panel__value">Marcus R. · 0.4s ago</span>
+        </div>
+        <span class="ui-panel__check">✓</span>
+      </div>
+      
+      <div class="ui-panel ui-panel--metric">
+        <div class="ui-panel__body">
+          <span class="ui-panel__metric">32.6%</span>
+          <span class="ui-panel__label">Average Conversion</span>
+        </div>
+      </div>
+      
+      <div class="ui-panel ui-panel--status">
+        <span class="ui-panel__dot"></span>
+        <span class="ui-panel__label">Lead Pipeline Online</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 2 — THE FRICTION
+  ============================================================ -->
+  <section class="scene s-problem" id="problem">
+    <div class="container">
+      <div class="s-problem__inner">
+        <!-- Traditional Cluttered Site Mockup -->
+        <div class="s-problem__mockup">
+          <div class="flat-site">
+            <div class="flat-site__bar">
+              <span class="flat-dot"></span>
+              <span class="flat-dot"></span>
+              <span class="flat-dot"></span>
+              <span class="flat-url">yourbusiness.com</span>
+            </div>
+            <div class="flat-site__body">
+              <div class="flat-nav-row">
+                <span class="flat-logo"></span>
+                <span class="flat-nav-links"></span>
+              </div>
+              <div class="flat-hero-area">
+                <div class="flat-h1"></div>
+                <div class="flat-h2"></div>
+                <div class="flat-btn-fake"></div>
+              </div>
+              <div class="flat-cards-row">
+                <div class="flat-card"></div>
+                <div class="flat-card"></div>
+                <div class="flat-card"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Friction Overlay warnings -->
+          <div class="flat-warn flat-warn--a" aria-hidden="true">Too Many Exits</div>
+          <div class="flat-warn flat-warn--b" aria-hidden="true">Friction Forms</div>
+          <div class="flat-warn flat-warn--c" aria-hidden="true">No Clear Next Step</div>
+          <div class="flat-warn flat-warn--d" aria-hidden="true">Visual Clutter</div>
+        </div>
+
+        <!-- Problem Copy -->
+        <div class="s-problem__copy">
+          <p class="scene-eyebrow">The Real Problem</p>
+          <h2 class="scene-title">
+            Traditional websites<br />
+            are conversion leaks.
+          </h2>
+          <p class="scene-sub">
+            Ad clicks are expensive. Sending highly targeted paid traffic to a generic corporate website with header links, social icons, and endless side navigation scatters attention and kills momentum.
+          </p>
+          
+          <div class="problem-points">
+            <div class="prob-pt">
+              <span class="prob-pt__dash">—</span>
+              <p><strong>Overwhelming Menus:</strong> Too many options lead to choice paralysis. Visitors exit before they ever see your call to action.</p>
+            </div>
+            <div class="prob-pt">
+              <span class="prob-pt__dash">—</span>
+              <p><strong>Unfocused Copy:</strong> Built to serve everyone, meaning it speaks to no one. Your unique campaign offer gets buried.</p>
+            </div>
+            <div class="prob-pt">
+              <span class="prob-pt__dash">—</span>
+              <p><strong>Disconnected Pipelines:</strong> Form submissions sit in a database instead of immediately alerting your sales team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 3 — THE TRANSFORMATION (PINNED SCROLL)
+  ============================================================ -->
+  <section class="scene s-transform" id="transform">
+    <div class="s-transform__wrap" id="transform-wrap">
+      <!-- Scroll Indicators -->
+      <div class="t-progress" aria-hidden="true">
+        <div class="t-progress__track">
+          <div class="t-progress__fill" id="t-progress-fill"></div>
+        </div>
+        <span class="t-progress__dot t-progress__dot--active" data-stage="0"></span>
+        <span class="t-progress__dot" data-stage="1"></span>
+        <span class="t-progress__dot" data-stage="2"></span>
+        <span class="t-progress__dot" data-stage="3"></span>
+      </div>
+
+      <div class="t-stage">
+        <!-- Stage Copy Left -->
+        <div class="t-copy-column">
+          <div class="t-copy t-copy--0 is-active" data-stage="0">
+            <p class="scene-eyebrow">Phase 01 · Standard Clutter</p>
+            <h2 class="t-headline">The Default Setup.</h2>
+            <p class="t-sub">A traditional layout designed for browse-heavy organic visitors. Paid traffic sent here wanders off through side links, blog articles, and team profiles. Friction wins.</p>
+          </div>
+          <div class="t-copy t-copy--1" data-stage="1">
+            <p class="scene-eyebrow">Phase 02 · Laser-Focused Strategy</p>
+            <h2 class="t-headline">Stripping Clutter.</h2>
+            <p class="t-sub">We remove headers, footer lists, and external navigation entirely. There is exactly one page, one narrative flow, and one clear, high-intent action step.</p>
+          </div>
+          <div class="t-copy t-copy--2" data-stage="2">
+            <p class="scene-eyebrow">Phase 03 · Cinematic Conversion</p>
+            <h2 class="t-headline">Premium Design.</h2>
+            <p class="t-sub">We apply high-contrast dark mode visuals, stellar particle backdrops, and immersive animations to capture focus and build immediate credibility.</p>
+          </div>
+          <div class="t-copy t-copy--3" data-stage="3">
+            <p class="scene-eyebrow">Phase 04 · Active Pipeline</p>
+            <h2 class="t-headline">Ready for Traffic.</h2>
+            <p class="t-sub">Form submissions connect to webhooks, dispatching alerts to your mobile device in under 1 second. Your conversion tracking runs cleanly on every channel.</p>
+          </div>
+        </div>
+
+        <!-- Stage Mockups Right -->
+        <div class="t-visual-column">
+          <div class="t-mockup" id="t-mockup">
+            <!-- Layer 0: Flat cluttered site -->
+            <div class="t-layer t-layer--0 is-active" data-stage="0">
+              <div class="tsite tsite--flat">
+                <div class="tsite__bar tsite__bar--light">
+                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+                  <span class="tsite__url-light">yourwebsite.com</span>
+                </div>
+                <div class="tsite__body tsite__body--light">
+                  <div class="tsite__nav-light"></div>
+                  <div class="tsite__hero-light">
+                    <div class="tsite__h1-light"></div>
+                    <div class="tsite__btn-light"></div>
+                  </div>
+                  <div class="tsite__cards-light">
+                    <div class="tsite__card-light"></div>
+                    <div class="tsite__card-light"></div>
+                    <div class="tsite__card-light"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layer 1: Stripped layout -->
+            <div class="t-layer t-layer--1" data-stage="1">
+              <div class="tsite tsite--dark">
+                <div class="tsite__bar tsite__bar--dark">
+                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+                  <span class="tsite__url-dark">yourcampaign.page</span>
+                </div>
+                <div class="tsite__body tsite__body--dark">
+                  <div class="tsite__hero-dark">
+                    <div class="tsite__h1-dark" style="background:rgba(255,255,255,0.1); box-shadow:none;"></div>
+                    <div class="tsite__sub-dark"></div>
+                    <div class="tsite__btn-dark" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); box-shadow:none;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layer 2: Glowing styling -->
+            <div class="t-layer t-layer--2" data-stage="2">
+              <div class="tsite tsite--dark">
+                <div class="tsite__bar tsite__bar--dark">
+                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+                  <span class="tsite__url-dark">yourcampaign.page</span>
+                </div>
+                <div class="tsite__body tsite__body--dark">
+                  <div class="tsite__grain"></div>
+                  <div class="tsite__hero-dark">
+                    <div class="tsite__glow-spot"></div>
+                    <div class="tsite__h1-dark"></div>
+                    <div class="tsite__sub-dark"></div>
+                    <div class="tsite__btn-dark"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layer 3: Complete Lead alert system -->
+            <div class="t-layer t-layer--3" data-stage="3">
+              <div class="tsite tsite--complete">
+                <div class="tsite__bar tsite__bar--dark">
+                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+                  <span class="tsite__url-dark">yourcampaign.page</span>
+                </div>
+                <div class="tsite__body tsite__body--complete">
+                  <div class="tsite__grain"></div>
+                  <div class="tsite__complete-glow"></div>
+                  <div class="tsite__hero-dark">
+                    <div class="tsite__h1-gold"></div>
+                    <div class="tsite__sub-dark"></div>
+                    <div class="tsite__btn-gold"></div>
+                  </div>
+                  <div class="tsite__complete-badge">✓ Active Pipeline</div>
+                  <div class="tsite__lead-alert">
+                    <span class="tla__pulse"></span>
+                    <span class="tla__text">Lead Captured · 0.2s</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 4 — THE ANATOMY (HORIZONTAL REEL)
+  ============================================================ -->
+  <section class="scene s-reel" id="experience">
+    <div class="reel__pin" id="reel-pin">
+      <div class="reel__hdr">
+        <p class="scene-eyebrow">The Anatomy</p>
+        <h2 class="reel__title">Every pixel engineered<br />for conversions.</h2>
+      </div>
+
+      <div class="reel__viewport">
+        <div class="reel__track" id="reel-track">
+          <!-- Card 1 -->
+          <div class="film-card" data-tilt>
+            <div class="film-card__num">01</div>
+            <div class="film-card__icon">◈</div>
+            <h3 class="film-card__title">Cinematic Visuals</h3>
+            <p class="film-card__text">
+              High-contrast overlays, moving light paths, and canvas particle starfields capture user attention instantly and elevate brand authority.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="film-card" data-tilt>
+            <div class="film-card__num">02</div>
+            <div class="film-card__icon">◎</div>
+            <h3 class="film-card__title">Single Offer Frame</h3>
+            <p class="film-card__text">
+              We structure the entire page around a single, compelling hook. No side links or exit paths. Visitors only have two paths: convert or leave.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="film-card" data-tilt>
+            <div class="film-card__num">03</div>
+            <div class="film-card__icon">◼</div>
+            <h3 class="film-card__title">Frictionless Fields</h3>
+            <p class="film-card__text">
+              Clean form inputs with interactive field validation make submitting details feel seamless. Optimized specifically for keyboard flow on phones.
+            </p>
+          </div>
+          <!-- Card 4 -->
+          <div class="film-card" data-tilt>
+            <div class="film-card__num">04</div>
+            <div class="film-card__icon">⚡</div>
+            <h3 class="film-card__title">Sub-Second Delivery</h3>
+            <p class="film-card__text">
+              We write semantic vanilla HTML/CSS and fast scripts. Pages load in milliseconds, securing every user whose attention might slip on slower builds.
+            </p>
+          </div>
+          <!-- Card 5 -->
+          <div class="film-card" data-tilt>
+            <div class="film-card__num">05</div>
+            <div class="film-card__icon">⬡</div>
+            <h3 class="film-card__title">Stellar Pipelines</h3>
+            <p class="film-card__text">
+              Integrations with Zapier, Slack, CRM tools, or Google Sheets route your customer inquiries directly to your team the second they click submit.
+            </p>
+          </div>
+          <!-- Card 6 -->
+          <div class="film-card" data-tilt>
+            <div class="film-card__num">06</div>
+            <div class="film-card__icon">◈</div>
+            <h3 class="film-card__title">Mobile Perfect</h3>
+            <p class="film-card__text">
+              Over 75% of paid traffic loads on mobile. LPR pages are structured mobile-first, ensuring animations, scales, and inputs fit smaller screens cleanly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal scroll progress bar -->
+      <div class="reel__progress" aria-hidden="true">
+        <div class="reel__progress-fill" id="reel-progress"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 5 — THE LEAD ENGINE (PIPELINE)
+  ============================================================ -->
+  <section class="scene s-pipeline" id="pipeline">
+    <div class="container">
+      <div class="scene-header">
+        <p class="scene-eyebrow">The Lead Pipeline</p>
+        <h2 class="scene-title">From Paid Click to Instant Alert.</h2>
+        <p class="scene-sub">
+          Our pages aren't just display pieces; they are interactive lead capture pipelines. Watch the conversion sequence process from the source straight to your workspace.
+        </p>
+      </div>
+
+      <!-- Animated railroad timeline -->
+      <div class="pipeline" id="pipeline-wrap">
+        <div class="pipeline__track">
+          <div class="pipeline__rail">
+            <div class="pipeline__fill" id="pipeline-fill"></div>
+          </div>
+          
+          <div class="pipeline__nodes">
+            <!-- Node 1 -->
+            <div class="p-node" data-step="0">
+              <div class="p-node__orb"><span>⬡</span></div>
+              <span class="p-node__label">1. Ad Click</span>
+            </div>
+            <!-- Node 2 -->
+            <div class="p-node" data-step="1">
+              <div class="p-node__orb"><span>◎</span></div>
+              <span class="p-node__label">2. LPR Capture</span>
+            </div>
+            <!-- Node 3 -->
+            <div class="p-node" data-step="2">
+              <div class="p-node__orb"><span>◈</span></div>
+              <span class="p-node__label">3. Form submit</span>
+            </div>
+            <!-- Node 4 -->
+            <div class="p-node" data-step="3">
+              <div class="p-node__orb"><span>⚡</span></div>
+              <span class="p-node__label">4. Webhook fire</span>
+            </div>
+            <!-- Node 5 -->
+            <div class="p-node" data-step="4">
+              <div class="p-node__orb"><span>◼</span></div>
+              <span class="p-node__label">5. Instant Alert</span>
+            </div>
+            <!-- Node 6 -->
+            <div class="p-node" data-step="5">
+              <div class="p-node__orb"><span>✓</span></div>
+              <span class="p-node__label">6. Deal Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popups simulating notifications -->
+        <div class="pipeline__cards" aria-hidden="true">
+          <div class="pl-card pl-card--alert" id="pl-alert">
+            <span class="pl-card__pulse"></span>
+            <div class="pl-card__body">
+              <span class="pl-card__title">New Lead captured</span>
+              <span class="pl-card__sub">SMS notification dispatched · 0.2s</span>
+            </div>
+          </div>
+          <div class="pl-card pl-card--saved" id="pl-saved">
+            <span class="pl-saved__check">✓</span>
+            <div class="pl-card__body">
+              <span class="pl-card__title">CRM Sync Complete</span>
+              <span class="pl-card__sub">Saved to dashboard pipeline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 6 — LAUNCH CHRONOLOGY
+  ============================================================ -->
+  <section class="scene s-process" id="process">
+    <div class="container">
+      <div class="scene-header">
+        <p class="scene-eyebrow">The Sequence</p>
+        <h2 class="scene-title">From Concept to Live in 48 Hours.</h2>
+        <p class="scene-sub">We combine clean development processes with strategic copywriting, bypassing standard administrative lag to deliver high-converting pages quickly.</p>
+      </div>
+
+      <div class="process-timeline" id="process-timeline">
+        <div class="process-timeline__spine">
+          <div class="process-spine__fill" id="process-spine"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="pt-item" data-step="0">
+          <div class="pt-item__marker">
+            <span class="pt-item__num">01</span>
+          </div>
+          <div class="pt-item__body">
+            <h3 class="pt-item__title">Lock the Offer Hook</h3>
+            <p class="pt-item__text">
+              We define your single campaign offer. We craft a compelling hero headline and secondary statements that align directly with your traffic source message.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="pt-item" data-step="1">
+          <div class="pt-item__marker">
+            <span class="pt-item__num">02</span>
+          </div>
+          <div class="pt-item__body">
+            <h3 class="pt-item__title">Configure Traffic Routes</h3>
+            <p class="pt-item__text">
+              We check your active ad setups (Google Ads, Facebook campaigns, or direct links) to map out UTM parameters, conversion metrics, and tracking tags accurately.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="pt-item" data-step="2">
+          <div class="pt-item__marker">
+            <span class="pt-item__num">03</span>
+          </div>
+          <div class="pt-item__body">
+            <h3 class="pt-item__title">Cinematic Coding</h3>
+            <p class="pt-item__text">
+              We compile your custom landing page using responsive, high-performance HTML/CSS and interactive GSAP animations, optimized for quick load speeds on mobile.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="pt-item" data-step="3">
+          <div class="pt-item__marker">
+            <span class="pt-item__num">04</span>
+          </div>
+          <div class="pt-item__body">
+            <h3 class="pt-item__title">Connect Alert Routing</h3>
+            <p class="pt-item__text">
+              We integrate webhooks to send leads straight to your CRM, email dashboard, Telegram chat, or Google Sheet instantly. No lead gets lost in database lag.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="pt-item" data-step="4">
+          <div class="pt-item__marker">
+            <span class="pt-item__num">05</span>
+          </div>
+          <div class="pt-item__body">
+            <h3 class="pt-item__title">Launch &amp; Optimize</h3>
+            <p class="pt-item__text">
+              The page goes live. Your second month is covered with no additional retainer fees, allowing you to run traffic and review lead performance before continuing support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 7 — INVESTMENT PLANS
+  ============================================================ -->
+  <section class="scene s-packages" id="packages">
+    <div class="container">
+      <div class="scene-header">
+        <p class="scene-eyebrow">Pricing Plans</p>
+        <h2 class="scene-title">Two ways to initiate lift-off.</h2>
+        <p class="scene-sub">All packages include complete design, coding, alert systems integration, and your second month of ongoing maintenance support free.</p>
+      </div>
+
+      <div class="pkg-grid">
+        <!-- Package 1 -->
+        <div class="pkg pkg--standard" data-tilt>
+          <div class="pkg__inner">
+            <p class="pkg__eyebrow">Essential Capture</p>
+            <h3 class="pkg__name">Launch Landing Page</h3>
+            <div class="pkg__price-wrap">
+              <span class="pkg__price">$1,000</span>
+              <span class="pkg__cycle">setup build</span>
+            </div>
+            <p class="pkg__tagline">Completed and launched in 1 to 2 days.</p>
+            
+            <div class="pkg__timeline" aria-label="Project lifecycle pricing timeline">
+              <div class="pkg__month">
+                <span class="pkg__month-name">M1</span>
+                <span class="pkg__month-amt">$1.0k</span>
+              </div>
+              <div class="pkg__month pkg__month--free">
+                <span class="pkg__month-name">M2</span>
+                <span class="pkg__month-amt">Free</span>
+              </div>
+              <div class="pkg__month">
+                <span class="pkg__month-name">M3</span>
+                <span class="pkg__month-amt">$2.0k</span>
+              </div>
+              <div class="pkg__month">
+                <span class="pkg__month-name">M4+</span>
+                <span class="pkg__month-amt">$500/m</span>
+              </div>
+            </div>
+
+            <ul class="pkg__features">
+              <li>Custom cinematic landing page</li>
+              <li>Mobile-first interface layout</li>
+              <li>Frictionless inquiry forms</li>
+              <li>Instant email or Telegram alerts</li>
+              <li>Zapier or Google Sheet capture</li>
+              <li>Included hosting &amp; SSL setup</li>
+              <li>Month 2 CRO optimization support</li>
+            </ul>
+
+            <a href="#request" class="btn btn--pkg-standard btn--full">Initiate Page Build</a>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="pkg pkg--premium" data-tilt>
+          <div class="pkg__glow-border" aria-hidden="true"></div>
+          <div class="pkg__inner">
+            <p class="pkg__eyebrow pkg__eyebrow--orange">Advanced Automation</p>
+            <h3 class="pkg__name">Full Automation Launch</h3>
+            <div class="pkg__price-wrap">
+              <span class="pkg__price">$1,500</span>
+              <span class="pkg__cycle">setup build</span>
+            </div>
+            <p class="pkg__tagline">Completed and launched in 1 to 2 days.</p>
+
+            <div class="pkg__timeline" aria-label="Project lifecycle pricing timeline">
+              <div class="pkg__month">
+                <span class="pkg__month-name">M1</span>
+                <span class="pkg__month-amt">$1.5k</span>
+              </div>
+              <div class="pkg__month pkg__month--free">
+                <span class="pkg__month-name">M2</span>
+                <span class="pkg__month-amt">Free</span>
+              </div>
+              <div class="pkg__month">
+                <span class="pkg__month-name">M3</span>
+                <span class="pkg__month-amt">$2.5k</span>
+              </div>
+              <div class="pkg__month">
+                <span class="pkg__month-name">M4+</span>
+                <span class="pkg__month-amt">$800/m</span>
+              </div>
+            </div>
+
+            <ul class="pkg__features">
+              <li>Everything in the Standard build</li>
+              <li>Integrated booking calendars (Calendly)</li>
+              <li>Multi-stage lead follow-up emails</li>
+              <li>Multi-channel alert routing (Slack + SMS)</li>
+              <li>Extended conversion logic testing</li>
+              <li>CRM routing pipelines setup</li>
+              <li>Month 2 priority conversion audits</li>
+            </ul>
+
+            <a href="#request" class="btn btn--cinema btn--full">Initiate Automation Build</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="pkg-note text-gradient-gold">
+        Month 2 is completely free with zero retainers, allowing you to run ads, collect inquiries, and verify your results before committing to continued support.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 8 — COMMON QUESTIONS
+  ============================================================ -->
+  <section class="scene s-faq" id="faq">
+    <div class="container">
+      <div class="scene-header">
+        <p class="scene-eyebrow">FAQ</p>
+        <h2 class="scene-title">Cleared for Launch.</h2>
+      </div>
+
+      <div class="faq-list" role="list">
+        <!-- Q1 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-1" id="faq-q-1">
+            <span>What exactly is a "cinematic" landing page?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1" hidden>
+            <p>
+              A cinematic landing page combines premium dark-mode visuals, interactive physics-based backgrounds (like our canvas stellar engine), and smooth GSAP page movements. These features capture user interest in the first critical second, helping establish immediate trust and lowering your bounce rates.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+            <span>How is this different from a standard business site?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2" hidden>
+            <p>
+              Standard websites are designed for browsing. They contain header menus, team pages, service lists, and multiple external links. An LPR page is structured around a single campaign offer. We remove header links and exit routes, giving paid traffic exactly one clear next step.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+            <span>How does the 48-hour delivery timeline work?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3" hidden>
+            <p>
+              Once you complete the onboarding details and submit your package choice, we begin immediately. On Day 1, we structure the core messaging hook and check your active campaign UTM pathways. On Day 2, we write the clean HTML/CSS/JS files, hook up lead webhooks, run cross-browser checks, and launch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+            <span>Which CRMs and notification channels do you support?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4" hidden>
+            <p>
+              We connect custom lead captures to almost any modern CRM, email marketing tool, or tracker. We build direct integrations for Slack channels, Telegram groups, Google Sheets, HubSpot, ActiveCampaign, Mailchimp, and Zapier webhooks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+            <span>Why is Month 2 free with no retainer?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5" hidden>
+            <p>
+              We want you to test the setup with live campaign traffic. By making your second month of hosting, support, and optimization audits free, you can collect inquiries and verify conversion results before deciding on continued retainer support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 9 — FORM PORTAL (REQUEST LAUNCH)
+  ============================================================ -->
+  <section class="scene s-request" id="request">
+    <div class="s-request__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="scene-header">
+        <p class="scene-eyebrow">Onboarding Portal</p>
+        <h2 class="scene-title">Initiate Your Page Build.</h2>
+        <p class="scene-sub">Fill out the brief details below. We will review your campaign details and follow up within one business day to start building.</p>
+      </div>
+
+      <form id="contact-form" class="req-form" novalidate>
+        <!-- Alerts -->
+        <div id="contact-error" class="c-form-error" style="display:none;" role="alert"></div>
+        <div id="contact-success" class="c-form-success" style="display:none;" role="status">
+          <span class="c-form-success__icon">✓</span>
+          <strong>Launch Request Received.</strong> Thank you! We have logged your details. A project manager will review your answers and follow up via email within 1 business day to start your build.
+        </div>
+
+        <!-- Step 1: Package Choice -->
+        <div class="req-group">
+          <div class="req-group__header">
+            <span class="req-group__num">01</span>
+            <h3 class="req-group__title">Select Your Path</h3>
+          </div>
+          <div class="form-group">
+            <label for="f-offer" class="req-label">Package Plan</label>
+            <select name="offer" id="f-offer" required>
+              <option value="">— Select a package plan —</option>
+              <option value="Standard Build — $1,000">Essential Capture Build — $1,000</option>
+              <option value="Automation Build — $1,500">Advanced Automation Build — $1,500</option>
+              <option value="Consulting Advise">Not sure yet — let's consult first</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 2: Contact Details -->
+        <div class="req-group">
+          <div class="req-group__header">
+            <span class="req-group__num">02</span>
+            <h3 class="req-group__title">Contact Information</h3>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name" class="req-label">Full Name</label>
+              <input type="text" name="full_name" id="f-name" placeholder="First and last name" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="f-biz" class="req-label">Business Name</label>
+              <input type="text" name="business_name" id="f-biz" placeholder="Company Name" autocomplete="organization" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-email" class="req-label">Business Email</label>
+              <input type="email" name="email" id="f-email" placeholder="you@company.com" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="f-phone" class="req-label">Phone <span class="req-opt">(Optional)</span></label>
+              <input type="tel" name="phone" id="f-phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-web" class="req-label">Current Site URL <span class="req-opt">(Optional)</span></label>
+            <input type="text" name="website_url" id="f-web" placeholder="https://yourbusiness.com" />
+          </div>
+        </div>
+
+        <!-- Step 3: Offer & Goals -->
+        <div class="req-group">
+          <div class="req-group__header">
+            <span class="req-group__num">03</span>
+            <h3 class="req-group__title">Offer &amp; Goals</h3>
+          </div>
+          <div class="form-group">
+            <label for="f-details" class="req-label">What service/product are you advertising?</label>
+            <input type="text" name="offer_detail" id="f-details" placeholder="e.g., HVAC installation, luxury real estate sales, SaaS tool" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="f-goal" class="req-label">Primary Landing Page Action</label>
+            <select name="goal" id="f-goal" required>
+              <option value="">— Select action goal —</option>
+              <option value="Get Quote / Estimate">Request an estimate or quote</option>
+              <option value="Book a Meeting / Call">Book a consultation call</option>
+              <option value="Download Lead Magnet">Download guide or lead magnet</option>
+              <option value="Submit contact form">Submit contact details</option>
+              <option value="Other">Other goal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 4: Traffic Source -->
+        <div class="req-group">
+          <div class="req-group__header">
+            <span class="req-group__num">04</span>
+            <h3 class="req-group__title">Campaign Traffic</h3>
+          </div>
+          <div class="form-group">
+            <label for="f-platform" class="req-label">Primary Traffic Source</label>
+            <select name="ad_platform" id="f-platform" required>
+              <option value="">— Select primary traffic source —</option>
+              <option value="Google Search / Performance Max">Google Ads (Search/PMax)</option>
+              <option value="Meta Ads (FB / Instagram)">Meta Ads (Facebook / IG)</option>
+              <option value="TikTok Campaign">TikTok Ads</option>
+              <option value="Organic Referral">Organic posts / Social channels</option>
+              <option value="Planning Ads Soon">Planning to run campaigns soon</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 5: Notes -->
+        <div class="req-group">
+          <div class="req-group__header">
+            <span class="req-group__num">05</span>
+            <h3 class="req-group__title">Additional Details <span class="req-opt">(Optional)</span></h3>
+          </div>
+          <div class="form-group">
+            <label for="f-notes" class="req-label">Notes, Design Inspirations, or CRM setup requirements</label>
+            <textarea name="notes" id="f-notes" placeholder="Write any design requests, CRM info, or timelines here..." rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="req-submit">
+          <button type="submit" id="contact-submit" class="btn btn--cinema btn--xl">
+            <span id="contact-submit-text">Initiate Page Build</span>
+          </button>
+          <p class="req-note">Submit when ready. No credit card required to start.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCENE 10 — FINALE CTA
+  ============================================================ -->
+  <section class="scene s-finale" id="finale">
+    <div class="s-finale__glow" aria-hidden="true"></div>
+    <div class="s-finale__beam" aria-hidden="true"></div>
+    <div class="container s-finale__inner">
+      <p class="scene-eyebrow">Ready for Launch</p>
+      <h2 class="s-finale__headline">
+        Your ad spend already earned the click.<br />
+        <em>Send those clicks to a page built to convert them.</em>
+      </h2>
+      <a href="#request" class="btn btn--cinema btn--xl">Initiate Page Build</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="#opening" class="site-footer__logo">LPR</a>
+        <p class="site-footer__tag">Landing Page Rocket</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="#problem" class="site-footer__link">The Friction</a>
+        <a href="#transform" class="site-footer__link">How It Works</a>
+        <a href="#experience" class="site-footer__link">What We Build</a>
+        <a href="#packages" class="site-footer__link">Packages</a>
+        <a href="#request" class="site-footer__link">Initiate Build</a>
+      </nav>
+      <p class="site-footer__copy">&copy; 2026 LPR — Landing Page Rocket. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lenis, GSAP and Controller script imports -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  
+  <script src="src/js/particles.js"></script>
+  <script src="src/js/cinematic.js"></script>
+  <script src="src/js/main.js"></script>
+
+  <!-- Inline script for accordion accessibility and handling toggles -->
+  <script>
+    (function() {
+      // FAQ Accordion
+      const faqButtons = document.querySelectorAll('.faq-question');
+      faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          const targetId = btn.getAttribute('aria-controls');
+          const targetPanel = document.getElementById(targetId);
+          const icon = btn.querySelector('.faq-icon');
+
+          // Close all FAQ buttons
+          faqButtons.forEach(otherBtn => {
+            if (otherBtn !== btn) {
+              otherBtn.setAttribute('aria-expanded', 'false');
+              const otherId = otherBtn.getAttribute('aria-controls');
+              const otherPanel = document.getElementById(otherId);
+              if (otherPanel) otherPanel.hidden = true;
+              const otherIcon = otherBtn.querySelector('.faq-icon');
+              if (otherIcon) otherIcon.textContent = '+';
+            }
+          });
+
+          // Toggle current
+          btn.setAttribute('aria-expanded', !expanded);
+          if (targetPanel) targetPanel.hidden = expanded;
+          if (icon) icon.textContent = expanded ? '+' : '−';
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
