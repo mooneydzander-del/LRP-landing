@@ -299,3 +299,106 @@ body.hovering-interactive .cursor-ring {
   pointer-events: none;
   z-index: 1;
 }
+
+/* ── 8. True Cinematic Letterboxing Anamorphic Bars ── */
+.cinema-bar {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 0px; /* Animate this heights to 40px in JS */
+  background-color: #030304;
+  z-index: 10005;
+  pointer-events: none;
+  transition: height 1s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 30px rgba(0,0,0,0.85);
+}
+
+.cinema-bar--top {
+  top: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.cinema-bar--bottom {
+  bottom: 0;
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+
+body.cinema-frame-active .cinema-bar {
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  body.cinema-frame-active .cinema-bar {
+    height: 16px; /* thinner on mobile viewports */
+  }
+}
+
+/* ── 9. Anamorphic Lens Flares ── */
+.lens-flare {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.45) 30%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(138, 43, 226, 0.45) 70%,
+    transparent 100%
+  );
+  filter: blur(1px);
+  width: 130%;
+  left: -15%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.75;
+}
+
+.lens-flare--top {
+  top: 15%;
+  transform: rotate(-1.5deg);
+  animation: flare-glow 8s infinite alternate ease-in-out;
+}
+
+.lens-flare--mid {
+  top: 60%;
+  transform: rotate(0.8deg);
+  animation: flare-glow 11s infinite alternate ease-in-out;
+}
+
+@keyframes flare-glow {
+  0% { opacity: 0.4; filter: blur(2px) scaleY(0.8); }
+  100% { opacity: 0.85; filter: blur(0.5px) scaleY(1.2); }
+}
+
+/* ── 10. Volumetric Cursor Light Beam (Flashlight Overlay) ── */
+.volumetric-flashlight {
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 200, 117, 0.05) 0%, rgba(0, 240, 255, 0.03) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+body.mouse-active .volumetric-flashlight {
+  opacity: 1;
+}
+
+/* ── 11. Staggered Cinema Letter/Word reveal wraps ── */
+.word-reveal-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: 0.18em;
+}
+
+.word-reveal-inner {
+  display: inline-block;
+  transform: translateY(105%);
+}
+
