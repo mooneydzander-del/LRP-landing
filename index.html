@@ -34,8 +34,10 @@
       position: relative;
       z-index: 10;
       text-align: center;
-      padding-top: clamp(72px, 10vh, 120px);
-      padding-bottom: 80px;
+      width: min(calc(100% - 48px), 1280px);
+      max-width: none; /* override .container max-width; min() handles it */
+      margin-inline: auto;
+      padding: clamp(110px, 14vh, 160px) 0 80px;
     }
     
     .lpr-brand-block {
@@ -68,11 +70,15 @@
     }
     
     .s-opening__headline {
-      max-width: 1100px;
+      max-width: 1180px;
+      width: 100%;
       margin: 0 auto 2rem auto;
-      font-size: clamp(3rem, 6vw, 6.5rem);
+      font-size: clamp(2.75rem, 5.6vw, 6rem);
       line-height: 0.95;
       letter-spacing: -0.045em;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
     }
 
     .h1-line {
@@ -86,10 +92,18 @@
       background-clip: text;
     }
 
+    @media (max-width: 768px) {
+      .s-opening__headline {
+        font-size: clamp(2.625rem, 13vw, 4rem);
+        line-height: 1;
+      }
+    }
+
     .s-opening__sub {
-      max-width: 760px;
+      max-width: 720px;
+      width: 100%;
       margin: 0 auto 3rem auto;
-      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
       line-height: 1.65;
     }
     
@@ -122,6 +136,8 @@
       align-items: center;
       gap: 1rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      max-width: min(320px, calc(100vw - 48px));
+      pointer-events: none;
     }
     
     .ui-panel__body {
@@ -145,8 +161,8 @@
     }
     
     .ui-panel--lead {
-      top: 38%;
-      left: 3%;
+      top: 42%;
+      left: clamp(24px, 6vw, 120px);
       border-color: rgba(0, 240, 255, 0.25);
     }
     
@@ -182,8 +198,8 @@
     }
     
     .ui-panel--metric {
-      bottom: 20%;
-      right: 3%;
+      bottom: 22%;
+      right: clamp(24px, 6vw, 120px);
       border-color: rgba(230, 200, 117, 0.25);
     }
     
@@ -197,7 +213,7 @@
     
     .ui-panel--status {
       top: 30%;
-      right: 3%;
+      right: clamp(24px, 6vw, 120px);
       padding: 0.5rem 1rem;
     }
     
@@ -208,7 +224,7 @@
       border-radius: 50%;
     }
     
-    @media (max-width: 1280px) {
+    @media (max-width: 1200px) {
       .ui-panel {
         display: none !important;
       }
@@ -821,7 +837,8 @@
     
     .reel__viewport {
       width: 100%;
-      overflow: visible;
+      min-width: 0;   /* prevents flex item from expanding to max-content child width */
+      overflow: hidden;
       padding-left: 6.5rem;
       z-index: 10;
     }
@@ -1792,6 +1809,8 @@
         <div class="lpr-primary">LPR</div>
         <div class="lpr-rollout">Landing Page Rocket</div>
       </div>
+
+      <p class="scene-eyebrow" style="margin-bottom: 1.75rem;">Ready for Launch</p>
 
       <h1 class="s-opening__headline">
         <span class="h1-line">Your ad spend already earned the click.</span>

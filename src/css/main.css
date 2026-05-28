@@ -66,12 +66,15 @@ html {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  overflow-x: clip; /* safety net — real causes fixed below */
 }
 
 body {
   overflow-x: hidden;
   position: relative;
   background-color: var(--color-bg-base);
+  max-width: 100%;
 }
 
 a {
@@ -358,7 +361,8 @@ p {
 .nav__toggle span:nth-child(2) { top: 9px; }
 .nav__toggle span:nth-child(3) { top: 18px; }
 
-@media (max-width: 768px) {
+/* Collapse nav links into drawer on medium viewports and below */
+@media (max-width: 900px) {
   .nav__links {
     display: none;
     position: fixed;
@@ -394,6 +398,13 @@ p {
 
   .nav__toggle {
     display: block;
+  }
+}
+
+/* Tighten nav gap at 900–1200px so links never overflow the container */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .nav__links {
+    gap: 1.5rem;
   }
 }
 
