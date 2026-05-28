@@ -402,3 +402,46 @@ body.mouse-active .volumetric-flashlight {
   transform: translateY(105%);
 }
 
+/* ── 12. Orbit wrapper positioning ── */
+.s-opening__orbits {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── 13. tsite body complete variant ── */
+.tsite__body--complete {
+  background-color: #060608;
+}
+
+/* ── 14. Reduced Motion Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .c-grain,
+  .star-layer--1,
+  .star-layer--2,
+  .orbit-ring--1,
+  .orbit-ring--2,
+  .s-ray--1,
+  .s-ray--2,
+  .s-ray--3,
+  .s-ray--4,
+  .lens-flare--top,
+  .lens-flare--mid,
+  .ui-panel__pulse::after,
+  .pl-card__pulse::after,
+  .tsite__lead-alert {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .word-reveal-inner {
+    transform: translateY(0%) !important;
+    transition: none !important;
+  }
+}
+

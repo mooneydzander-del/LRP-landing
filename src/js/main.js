@@ -33,7 +33,7 @@
       const targetId = this.getAttribute('href');
       const target = document.querySelector(targetId);
       if (target) {
-        lenis.scrollTo(target, { offset: -20 });
+        lenis.scrollTo(target, { offset: -90 });
         
         const navLinks = document.getElementById('nav-links');
         const navToggle = document.getElementById('nav-toggle');
@@ -45,29 +45,8 @@
     });
   });
 
-  // ── 2. Automatic Split-Text Cinematic Word Reveals ──
-  const prepareSplitText = () => {
-    const targets = document.querySelectorAll('.s-opening__headline, .scene-title, .s-finale__headline');
-    targets.forEach(heading => {
-      // Avoid splitting again if already processed
-      if (heading.querySelectorAll('.word-reveal-wrap').length > 0) return;
-
-      const words = heading.innerHTML.trim().split(/\s+/);
-      const wrapped = words.map(word => {
-        // Preserve inner formatting tags like <br> or em elements
-        if (word.toLowerCase().includes('<br') || word.toLowerCase().includes('<em>') || word.toLowerCase().includes('</em>')) {
-          return word;
-        }
-        
-        // Wrap word in double hidden layers
-        return `<span class="word-reveal-wrap"><span class="word-reveal-inner">${word}</span></span>`;
-      }).join(' ');
-
-      heading.innerHTML = wrapped;
-    });
-  };
-
-  prepareSplitText();
+  // Word-level split-text removed — hero and section titles use line/element reveals instead.
+  // This prevents words scattering or clipping at unexpected positions across viewports.
 
   // ── 3. Navigation Drawer & Progress Trackers ──
   const navToggle = document.getElementById('nav-toggle');
@@ -91,21 +70,21 @@
   }
 
   // ── 4. Cinematic Entrance Animations (GSAP) ──
-  const heroTl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.6 } });
-  
-  // Set initial hidden states
-  gsap.set('.word-reveal-inner', { translateY: '105%' });
+  const heroTl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.4 } });
+
+  // Set initial hidden states — line-level, never per-word
+  gsap.set('.s-opening__headline .h1-line', { opacity: 0, y: 50 });
   gsap.set('.s-opening__sub', { opacity: 0, y: 25 });
   gsap.set('.s-opening__cta .btn', { opacity: 0, y: 20 });
   gsap.set('.ui-panel', { opacity: 0, scale: 0.85 });
   gsap.set('.lpr-brand-block', { opacity: 0, scale: 0.95 });
 
-  // Play Entrance Sequence
-  heroTl.to('.lpr-brand-block', { opacity: 1, scale: 1, duration: 1.2 })
-        .to('.s-opening__headline .word-reveal-inner', { translateY: '0%', stagger: 0.045 }, '-=0.8')
-        .to('.s-opening__sub', { opacity: 1, y: 0 }, '-=1.0')
-        .to('.s-opening__cta .btn', { opacity: 1, y: 0, stagger: 0.15 }, '-=1.1')
-        .to('.ui-panel', { opacity: 1, scale: 1, stagger: 0.18 }, '-=1.2');
+  // Play Entrance Sequence — brand mark → headline lines → sub → CTAs → panels
+  heroTl.to('.lpr-brand-block', { opacity: 1, scale: 1, duration: 1.1 })
+        .to('.s-opening__headline .h1-line', { opacity: 1, y: 0, stagger: 0.18, duration: 1.0, ease: 'power3.out' }, '-=0.75')
+        .to('.s-opening__sub', { opacity: 1, y: 0, duration: 1.0 }, '-=0.75')
+        .to('.s-opening__cta .btn', { opacity: 1, y: 0, stagger: 0.15, duration: 0.8 }, '-=0.8')
+        .to('.ui-panel', { opacity: 1, scale: 1, stagger: 0.18, duration: 0.9 }, '-=0.9');
 
   // ── 5. Scroll-Triggered Scene Pipelines ──
 
@@ -124,15 +103,15 @@
 
   const sceneTitles = document.querySelectorAll('.s-problem .scene-title, .s-pipeline .scene-title, .s-process .scene-title, .s-packages .scene-title, .s-faq .scene-title');
   sceneTitles.forEach(title => {
-    gsap.to(title.querySelectorAll('.word-reveal-inner'), {
+    gsap.from(title, {
       scrollTrigger: {
         trigger: title,
-        start: 'top 85%',
+        start: 'top 88%',
         toggleActions: 'play none none reverse'
       },
-      translateY: '0%',
-      stagger: 0.04,
-      duration: 1.2,
+      opacity: 0,
+      y: 30,
+      duration: 1.0,
       ease: 'power3.out'
     });
   });
@@ -286,16 +265,17 @@
     });
   }
 
-  // Scene 10: Finale text reveal scroll trigger
-  gsap.to('.s-finale__headline .word-reveal-inner', {
+  // Scene 10: Finale line reveals on scroll
+  gsap.from('.s-finale__headline .h1-line', {
     scrollTrigger: {
       trigger: '.s-finale',
       start: 'top 65%',
       toggleActions: 'play none none reverse'
     },
-    translateY: '0%',
-    stagger: 0.045,
-    duration: 1.4,
+    opacity: 0,
+    y: 40,
+    stagger: 0.2,
+    duration: 1.2,
     ease: 'power3.out'
   });
 
@@ -342,22 +322,27 @@
       if (hasError) {
         errorAlert.textContent = 'Please fill out all required fields marked in red.';
         errorAlert.style.display = 'block';
-        lenis.scrollTo('#request', { offset: -40 });
+        lenis.scrollTo('#request', { offset: -90 });
         return;
       }
 
       submitBtn.disabled = true;
       submitText.innerHTML = `<span class="form-spinner"></span>Initiating Launch Request...`;
 
+      // TODO: Replace this timeout with a real API call.
+      // Example: POST to an n8n webhook, Google Apps Script, or serverless function.
+      // fetch('/api/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      console.log('[LPR] Form submission data (dev mode — wire up backend to go live):', data);
+
       setTimeout(() => {
         submitBtn.disabled = false;
         submitText.textContent = 'Initiate Page Build';
-        
+
         successAlert.style.display = 'block';
         form.reset();
-        
+
         createExplosionEffect(submitBtn);
-        lenis.scrollTo('#request', { offset: -40 });
+        lenis.scrollTo('#request', { offset: -90 });
       }, 1500);
     });
 
