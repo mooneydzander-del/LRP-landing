@@ -324,12 +324,12 @@ body.hovering-interactive .cursor-ring {
 }
 
 body.cinema-frame-active .cinema-bar {
-  height: 32px;
+  height: 14px;
 }
 
 @media (max-width: 768px) {
   body.cinema-frame-active .cinema-bar {
-    height: 16px; /* thinner on mobile viewports */
+    height: 8px;
   }
 }
 

@@ -25,17 +25,17 @@
     /* Scene 1 (Opening) CSS */
     .s-opening {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 120px;
       position: relative;
+      overflow: hidden;
+      padding-top: var(--header-height);
     }
-    
+
     .s-opening__inner {
       position: relative;
       z-index: 10;
       text-align: center;
+      padding-top: clamp(72px, 10vh, 120px);
+      padding-bottom: 80px;
     }
     
     .lpr-brand-block {
@@ -70,9 +70,9 @@
     .s-opening__headline {
       max-width: 1100px;
       margin: 0 auto 2rem auto;
-      font-size: clamp(2.6rem, 6vw, 6rem);
-      line-height: 1.0;
-      letter-spacing: -0.03em;
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
     }
 
     .h1-line {
@@ -107,7 +107,7 @@
       top: 0;
       left: 0;
       pointer-events: none;
-      z-index: 5;
+      z-index: 1;
     }
     
     .ui-panel {
@@ -145,8 +145,8 @@
     }
     
     .ui-panel--lead {
-      top: 25%;
-      left: 8%;
+      top: 38%;
+      left: 3%;
       border-color: rgba(0, 240, 255, 0.25);
     }
     
@@ -182,8 +182,8 @@
     }
     
     .ui-panel--metric {
-      bottom: 25%;
-      right: 10%;
+      bottom: 20%;
+      right: 3%;
       border-color: rgba(230, 200, 117, 0.25);
     }
     
@@ -196,8 +196,8 @@
     }
     
     .ui-panel--status {
-      top: 18%;
-      right: 15%;
+      top: 30%;
+      right: 3%;
       padding: 0.5rem 1rem;
     }
     
@@ -208,9 +208,9 @@
       border-radius: 50%;
     }
     
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
       .ui-panel {
-        display: none !important; /* Hide floating UI panels on smaller viewports */
+        display: none !important;
       }
     }
     
