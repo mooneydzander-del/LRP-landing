@@ -54,7 +54,7 @@
           "name": "What exactly is a \"cinematic\" landing page?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A cinematic landing page combines premium dark-mode visuals, interactive physics-based backgrounds (like our canvas stellar engine), and smooth GSAP page movements. These features capture user interest in the first critical second, helping establish immediate trust and lowering your bounce rates."
+            "text": "A cinematic landing page combines premium dark-mode visuals, bold typography, and a polished, focused layout. These features capture user interest in the first critical second, helping establish immediate trust and lowering your bounce rates."
           }
         },
         {
@@ -1674,28 +1674,6 @@
 </head>
 <body>
 
-  <!-- Grain & Vignette cinematic overlays -->
-  <div class="c-grain" aria-hidden="true"></div>
-  <div class="c-vignette" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Anamorphic cinematic letterbox bars -->
-  <div class="cinema-bar cinema-bar--top" aria-hidden="true"></div>
-  <div class="cinema-bar cinema-bar--bottom" aria-hidden="true"></div>
-
-  <!-- Custom Cursor -->
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
-
-  <!-- Atmospheric Background Canvas -->
-  <div class="scene-atmosphere">
-    <canvas id="stellar-canvas" class="stellar-canvas"></canvas>
-    <div class="nebula-glow nebula-glow--cyan" aria-hidden="true"></div>
-    <div class="nebula-glow nebula-glow--purple" aria-hidden="true"></div>
-    <div class="lens-flare lens-flare--top" aria-hidden="true"></div>
-    <div class="lens-flare lens-flare--mid" aria-hidden="true"></div>
-  </div>
-
   <!-- ============================================================
        NAVIGATION HEADER
   ============================================================ -->
@@ -1719,27 +1697,6 @@
        SCENE 1 — HERO / OPENING
   ============================================================ -->
   <section class="scene s-opening" id="opening">
-    <!-- Starfield overlays -->
-    <div class="s-opening__starfield" aria-hidden="true">
-      <div class="star-layer star-layer--1"></div>
-      <div class="star-layer star-layer--2"></div>
-    </div>
-
-    <!-- Orbit background decorations -->
-    <div class="s-opening__orbits" aria-hidden="true">
-      <div class="orbit-ring orbit-ring--1"></div>
-      <div class="orbit-ring orbit-ring--2"></div>
-    </div>
-
-    <!-- Light rays -->
-    <div class="s-opening__rays" aria-hidden="true">
-      <span class="s-ray s-ray--1"></span>
-      <span class="s-ray s-ray--2"></span>
-      <span class="s-ray s-ray--3"></span>
-      <span class="s-ray s-ray--4"></span>
-    </div>
-    <div class="s-opening__glow" aria-hidden="true"></div>
-
     <div class="container s-opening__inner">
       <div class="lpr-brand-block">
         <div class="lpr-primary">LPR</div>
@@ -1767,29 +1724,6 @@
       </div>
     </div>
 
-    <!-- Floating Dashboard Panels (Visual CRO metrics) -->
-    <div class="s-opening__panels" aria-hidden="true">
-      <div class="ui-panel ui-panel--lead">
-        <span class="ui-panel__pulse"></span>
-        <div class="ui-panel__body">
-          <span class="ui-panel__label">Inquiry Captured</span>
-          <span class="ui-panel__value">Marcus R. · 0.4s ago</span>
-        </div>
-        <span class="ui-panel__check">✓</span>
-      </div>
-      
-      <div class="ui-panel ui-panel--metric">
-        <div class="ui-panel__body">
-          <span class="ui-panel__metric">32.6%</span>
-          <span class="ui-panel__label">Average Conversion</span>
-        </div>
-      </div>
-      
-      <div class="ui-panel ui-panel--status">
-        <span class="ui-panel__dot"></span>
-        <span class="ui-panel__label">Lead Pipeline Online</span>
-      </div>
-    </div>
   </section>
 
   <!-- ============================================================
@@ -1865,130 +1799,115 @@
        SCENE 3 — THE TRANSFORMATION (PINNED SCROLL)
   ============================================================ -->
   <section class="scene s-transform" id="transform">
-    <div class="s-transform__wrap" id="transform-wrap">
-      <!-- Scroll Indicators -->
-      <div class="t-progress" aria-hidden="true">
-        <div class="t-progress__track">
-          <div class="t-progress__fill" id="t-progress-fill"></div>
-        </div>
-        <span class="t-progress__dot t-progress__dot--active" data-stage="0"></span>
-        <span class="t-progress__dot" data-stage="1"></span>
-        <span class="t-progress__dot" data-stage="2"></span>
-        <span class="t-progress__dot" data-stage="3"></span>
+    <div class="container">
+      <div class="scene-header">
+        <p class="scene-eyebrow">How It Works</p>
+        <h2 class="scene-title">From cluttered site to conversion page.</h2>
       </div>
 
-      <div class="t-stage">
-        <!-- Stage Copy Left -->
-        <div class="t-copy-column">
-          <div class="t-copy t-copy--0 is-active" data-stage="0">
+      <div class="phase-grid">
+        <article class="phase-card">
+          <div class="phase-card__visual" aria-hidden="true">
+            <div class="tsite tsite--flat">
+            <div class="tsite__bar tsite__bar--light">
+            <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+            <span class="tsite__url-light">yourwebsite.com</span>
+            </div>
+            <div class="tsite__body tsite__body--light">
+            <div class="tsite__nav-light"></div>
+            <div class="tsite__hero-light">
+            <div class="tsite__h1-light"></div>
+            <div class="tsite__btn-light"></div>
+            </div>
+            <div class="tsite__cards-light">
+            <div class="tsite__card-light"></div>
+            <div class="tsite__card-light"></div>
+            <div class="tsite__card-light"></div>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="phase-card__copy">
             <p class="scene-eyebrow">Phase 01 · Standard Clutter</p>
-            <h2 class="t-headline">The Default Setup.</h2>
+            <h3 class="t-headline">The Default Setup.</h3>
             <p class="t-sub">A traditional layout designed for browse-heavy organic visitors. Paid traffic sent here wanders off through side links, blog articles, and team profiles. Friction wins.</p>
           </div>
-          <div class="t-copy t-copy--1" data-stage="1">
+        </article>
+        <article class="phase-card">
+          <div class="phase-card__visual" aria-hidden="true">
+            <div class="tsite tsite--dark">
+            <div class="tsite__bar tsite__bar--dark">
+            <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+            <span class="tsite__url-dark">yourcampaign.page</span>
+            </div>
+            <div class="tsite__body tsite__body--dark">
+            <div class="tsite__hero-dark">
+            <div class="tsite__h1-dark" style="background:rgba(255,255,255,0.1); box-shadow:none;"></div>
+            <div class="tsite__sub-dark"></div>
+            <div class="tsite__btn-dark" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); box-shadow:none;"></div>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="phase-card__copy">
             <p class="scene-eyebrow">Phase 02 · Laser-Focused Strategy</p>
-            <h2 class="t-headline">Stripping Clutter.</h2>
+            <h3 class="t-headline">Stripping Clutter.</h3>
             <p class="t-sub">We remove headers, footer lists, and external navigation entirely. There is exactly one page, one narrative flow, and one clear, high-intent action step.</p>
           </div>
-          <div class="t-copy t-copy--2" data-stage="2">
+        </article>
+        <article class="phase-card">
+          <div class="phase-card__visual" aria-hidden="true">
+            <div class="tsite tsite--dark">
+            <div class="tsite__bar tsite__bar--dark">
+            <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+            <span class="tsite__url-dark">yourcampaign.page</span>
+            </div>
+            <div class="tsite__body tsite__body--dark">
+            <div class="tsite__grain"></div>
+            <div class="tsite__hero-dark">
+            <div class="tsite__glow-spot"></div>
+            <div class="tsite__h1-dark"></div>
+            <div class="tsite__sub-dark"></div>
+            <div class="tsite__btn-dark"></div>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="phase-card__copy">
             <p class="scene-eyebrow">Phase 03 · Cinematic Conversion</p>
-            <h2 class="t-headline">Premium Design.</h2>
+            <h3 class="t-headline">Premium Design.</h3>
             <p class="t-sub">We apply high-contrast dark mode visuals, stellar particle backdrops, and immersive animations to capture focus and build immediate credibility.</p>
           </div>
-          <div class="t-copy t-copy--3" data-stage="3">
+        </article>
+        <article class="phase-card">
+          <div class="phase-card__visual" aria-hidden="true">
+            <div class="tsite tsite--complete">
+            <div class="tsite__bar tsite__bar--dark">
+            <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
+            <span class="tsite__url-dark">yourcampaign.page</span>
+            </div>
+            <div class="tsite__body tsite__body--complete">
+            <div class="tsite__grain"></div>
+            <div class="tsite__complete-glow"></div>
+            <div class="tsite__hero-dark">
+            <div class="tsite__h1-gold"></div>
+            <div class="tsite__sub-dark"></div>
+            <div class="tsite__btn-gold"></div>
+            </div>
+            <div class="tsite__complete-badge">✓ Active Pipeline</div>
+            <div class="tsite__lead-alert">
+            <span class="tla__pulse"></span>
+            <span class="tla__text">Lead Captured · 0.2s</span>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="phase-card__copy">
             <p class="scene-eyebrow">Phase 04 · Active Pipeline</p>
-            <h2 class="t-headline">Ready for Traffic.</h2>
+            <h3 class="t-headline">Ready for Traffic.</h3>
             <p class="t-sub">Form submissions connect to webhooks, dispatching alerts to your mobile device in under 1 second. Your conversion tracking runs cleanly on every channel.</p>
           </div>
-        </div>
-
-        <!-- Stage Mockups Right -->
-        <div class="t-visual-column">
-          <div class="t-mockup" id="t-mockup">
-            <!-- Layer 0: Flat cluttered site -->
-            <div class="t-layer t-layer--0 is-active" data-stage="0">
-              <div class="tsite tsite--flat">
-                <div class="tsite__bar tsite__bar--light">
-                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
-                  <span class="tsite__url-light">yourwebsite.com</span>
-                </div>
-                <div class="tsite__body tsite__body--light">
-                  <div class="tsite__nav-light"></div>
-                  <div class="tsite__hero-light">
-                    <div class="tsite__h1-light"></div>
-                    <div class="tsite__btn-light"></div>
-                  </div>
-                  <div class="tsite__cards-light">
-                    <div class="tsite__card-light"></div>
-                    <div class="tsite__card-light"></div>
-                    <div class="tsite__card-light"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Layer 1: Stripped layout -->
-            <div class="t-layer t-layer--1" data-stage="1">
-              <div class="tsite tsite--dark">
-                <div class="tsite__bar tsite__bar--dark">
-                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
-                  <span class="tsite__url-dark">yourcampaign.page</span>
-                </div>
-                <div class="tsite__body tsite__body--dark">
-                  <div class="tsite__hero-dark">
-                    <div class="tsite__h1-dark" style="background:rgba(255,255,255,0.1); box-shadow:none;"></div>
-                    <div class="tsite__sub-dark"></div>
-                    <div class="tsite__btn-dark" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); box-shadow:none;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Layer 2: Glowing styling -->
-            <div class="t-layer t-layer--2" data-stage="2">
-              <div class="tsite tsite--dark">
-                <div class="tsite__bar tsite__bar--dark">
-                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
-                  <span class="tsite__url-dark">yourcampaign.page</span>
-                </div>
-                <div class="tsite__body tsite__body--dark">
-                  <div class="tsite__grain"></div>
-                  <div class="tsite__hero-dark">
-                    <div class="tsite__glow-spot"></div>
-                    <div class="tsite__h1-dark"></div>
-                    <div class="tsite__sub-dark"></div>
-                    <div class="tsite__btn-dark"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Layer 3: Complete Lead alert system -->
-            <div class="t-layer t-layer--3" data-stage="3">
-              <div class="tsite tsite--complete">
-                <div class="tsite__bar tsite__bar--dark">
-                  <span class="td td--r"></span><span class="td td--y"></span><span class="td td--g"></span>
-                  <span class="tsite__url-dark">yourcampaign.page</span>
-                </div>
-                <div class="tsite__body tsite__body--complete">
-                  <div class="tsite__grain"></div>
-                  <div class="tsite__complete-glow"></div>
-                  <div class="tsite__hero-dark">
-                    <div class="tsite__h1-gold"></div>
-                    <div class="tsite__sub-dark"></div>
-                    <div class="tsite__btn-gold"></div>
-                  </div>
-                  <div class="tsite__complete-badge">✓ Active Pipeline</div>
-                  <div class="tsite__lead-alert">
-                    <span class="tla__pulse"></span>
-                    <span class="tla__text">Lead Captured · 0.2s</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -2006,7 +1925,7 @@
       <div class="reel__viewport">
         <div class="reel__track" id="reel-track">
           <!-- Card 1 -->
-          <div class="film-card" data-tilt>
+          <div class="film-card">
             <div class="film-card__num">01</div>
             <div class="film-card__icon">◈</div>
             <h3 class="film-card__title">Cinematic Visuals</h3>
@@ -2015,7 +1934,7 @@
             </p>
           </div>
           <!-- Card 2 -->
-          <div class="film-card" data-tilt>
+          <div class="film-card">
             <div class="film-card__num">02</div>
             <div class="film-card__icon">◎</div>
             <h3 class="film-card__title">Single Offer Frame</h3>
@@ -2024,7 +1943,7 @@
             </p>
           </div>
           <!-- Card 3 -->
-          <div class="film-card" data-tilt>
+          <div class="film-card">
             <div class="film-card__num">03</div>
             <div class="film-card__icon">◼</div>
             <h3 class="film-card__title">Frictionless Fields</h3>
@@ -2033,7 +1952,7 @@
             </p>
           </div>
           <!-- Card 4 -->
-          <div class="film-card" data-tilt>
+          <div class="film-card">
             <div class="film-card__num">04</div>
             <div class="film-card__icon">⚡</div>
             <h3 class="film-card__title">Sub-Second Delivery</h3>
@@ -2042,7 +1961,7 @@
             </p>
           </div>
           <!-- Card 5 -->
-          <div class="film-card" data-tilt>
+          <div class="film-card">
             <div class="film-card__num">05</div>
             <div class="film-card__icon">⬡</div>
             <h3 class="film-card__title">Stellar Pipelines</h3>
@@ -2051,7 +1970,7 @@
             </p>
           </div>
           <!-- Card 6 -->
-          <div class="film-card" data-tilt>
+          <div class="film-card">
             <div class="film-card__num">06</div>
             <div class="film-card__icon">◈</div>
             <h3 class="film-card__title">Mobile Perfect</h3>
@@ -2062,10 +1981,6 @@
         </div>
       </div>
 
-      <!-- Horizontal scroll progress bar -->
-      <div class="reel__progress" aria-hidden="true">
-        <div class="reel__progress-fill" id="reel-progress"></div>
-      </div>
     </div>
   </section>
 
@@ -2091,32 +2006,32 @@
           
           <div class="pipeline__nodes">
             <!-- Node 1 -->
-            <div class="p-node" data-step="0">
+            <div class="p-node p-node--active" data-step="0">
               <div class="p-node__orb"><span>⬡</span></div>
               <span class="p-node__label">1. Ad Click</span>
             </div>
             <!-- Node 2 -->
-            <div class="p-node" data-step="1">
+            <div class="p-node p-node--active" data-step="1">
               <div class="p-node__orb"><span>◎</span></div>
               <span class="p-node__label">2. LPR Capture</span>
             </div>
             <!-- Node 3 -->
-            <div class="p-node" data-step="2">
+            <div class="p-node p-node--active" data-step="2">
               <div class="p-node__orb"><span>◈</span></div>
               <span class="p-node__label">3. Form submit</span>
             </div>
             <!-- Node 4 -->
-            <div class="p-node" data-step="3">
+            <div class="p-node p-node--active" data-step="3">
               <div class="p-node__orb"><span>⚡</span></div>
               <span class="p-node__label">4. Webhook fire</span>
             </div>
             <!-- Node 5 -->
-            <div class="p-node" data-step="4">
+            <div class="p-node p-node--active" data-step="4">
               <div class="p-node__orb"><span>◼</span></div>
               <span class="p-node__label">5. Instant Alert</span>
             </div>
             <!-- Node 6 -->
-            <div class="p-node" data-step="5">
+            <div class="p-node p-node--active" data-step="5">
               <div class="p-node__orb"><span>✓</span></div>
               <span class="p-node__label">6. Deal Closed</span>
             </div>
@@ -2125,14 +2040,14 @@
 
         <!-- Popups simulating notifications -->
         <div class="pipeline__cards" aria-hidden="true">
-          <div class="pl-card pl-card--alert" id="pl-alert">
+          <div class="pl-card pl-card--alert pl-card--visible" id="pl-alert">
             <span class="pl-card__pulse"></span>
             <div class="pl-card__body">
               <span class="pl-card__title">New Lead captured</span>
               <span class="pl-card__sub">SMS notification dispatched · 0.2s</span>
             </div>
           </div>
-          <div class="pl-card pl-card--saved" id="pl-saved">
+          <div class="pl-card pl-card--saved pl-card--visible" id="pl-saved">
             <span class="pl-saved__check">✓</span>
             <div class="pl-card__body">
               <span class="pl-card__title">CRM Sync Complete</span>
@@ -2161,7 +2076,7 @@
         </div>
 
         <!-- Step 1 -->
-        <div class="pt-item" data-step="0">
+        <div class="pt-item pt-item--active" data-step="0">
           <div class="pt-item__marker">
             <span class="pt-item__num">01</span>
           </div>
@@ -2174,7 +2089,7 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="pt-item" data-step="1">
+        <div class="pt-item pt-item--active" data-step="1">
           <div class="pt-item__marker">
             <span class="pt-item__num">02</span>
           </div>
@@ -2187,7 +2102,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="pt-item" data-step="2">
+        <div class="pt-item pt-item--active" data-step="2">
           <div class="pt-item__marker">
             <span class="pt-item__num">03</span>
           </div>
@@ -2200,7 +2115,7 @@
         </div>
 
         <!-- Step 4 -->
-        <div class="pt-item" data-step="3">
+        <div class="pt-item pt-item--active" data-step="3">
           <div class="pt-item__marker">
             <span class="pt-item__num">04</span>
           </div>
@@ -2213,7 +2128,7 @@
         </div>
 
         <!-- Step 5 -->
-        <div class="pt-item" data-step="4">
+        <div class="pt-item pt-item--active" data-step="4">
           <div class="pt-item__marker">
             <span class="pt-item__num">05</span>
           </div>
@@ -2363,7 +2278,7 @@
           </button>
           <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1" hidden>
             <p>
-              A cinematic landing page combines premium dark-mode visuals, interactive physics-based backgrounds (like our canvas stellar engine), and smooth GSAP page movements. These features capture user interest in the first critical second, helping establish immediate trust and lowering your bounce rates.
+              A cinematic landing page combines premium dark-mode visuals, bold typography, and a polished, focused layout. These features capture user interest in the first critical second, helping establish immediate trust and lowering your bounce rates.
             </p>
           </div>
         </div>
@@ -2628,8 +2543,6 @@
        SCENE 10 — FINALE CTA
   ============================================================ -->
   <section class="scene s-finale" id="finale">
-    <div class="s-finale__glow" aria-hidden="true"></div>
-    <div class="s-finale__beam" aria-hidden="true"></div>
     <div class="container s-finale__inner">
       <p class="scene-eyebrow">Ready for Launch</p>
       <h2 class="s-finale__headline">
@@ -2660,13 +2573,6 @@
     </div>
   </footer>
 
-  <!-- Lenis, GSAP and Controller script imports -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  
-  <script src="src/js/particles.js"></script>
-  <script src="src/js/cinematic.js"></script>
   <script src="src/js/main.js"></script>
   <script src="src/js/pricing.js"></script>
 

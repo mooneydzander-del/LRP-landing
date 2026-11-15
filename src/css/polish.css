@@ -418,3 +418,176 @@ li {
     gap: 0.55rem;
   }
 }
+
+/* ============================================================
+   11. Calm, static experience — no scroll-jacking or motion FX
+   ============================================================ */
+
+/* Native scrolling; anchor links clear the fixed nav */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Stop looping decorative animations (form spinner is kept) */
+.pl-card__pulse::after,
+.tla__pulse::after,
+.tsite__lead-alert {
+  animation: none !important;
+}
+
+.pl-card__pulse::after,
+.tla__pulse::after {
+  display: none;
+}
+
+/* No hover lift or wobble on content cards */
+.film-card:hover,
+.price-card:hover,
+.glass-panel:hover {
+  transform: none;
+}
+
+/* ── "How it works": four static phase cards ── */
+.s-transform {
+  height: auto !important;
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .phase-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.phase-card {
+  background: #0b0b0b;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phase-card__visual {
+  height: 240px;
+  padding: 1.75rem 1.75rem 0;
+  background: #070707;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.phase-card__visual .tsite {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: none;
+}
+
+.phase-card__copy {
+  padding: 2rem 2rem 2.25rem;
+}
+
+.phase-card__copy .scene-eyebrow {
+  font-size: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.phase-card__copy .t-headline {
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  margin-bottom: 0.9rem;
+}
+
+.phase-card__copy .t-sub {
+  font-size: 0.98rem;
+}
+
+@media (max-width: 560px) {
+  .phase-card__visual {
+    height: 190px;
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .phase-card__copy {
+    padding: 1.6rem 1.4rem 1.9rem;
+  }
+}
+
+/* ── "What we build": regular grid instead of sideways scroll ── */
+.reel__pin {
+  height: auto;
+  overflow: visible;
+  padding: 0;
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.reel__hdr,
+.reel__viewport {
+  padding-left: 0;
+}
+
+.reel__hdr {
+  margin-bottom: 4rem;
+}
+
+.reel__viewport {
+  overflow: visible;
+}
+
+.reel__track {
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  transform: none !important;
+}
+
+.film-card {
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .reel__pin {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .reel__track {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Pipeline + process: show the finished state, no scroll scrubbing ── */
+.pipeline__fill,
+.process-spine__fill {
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+}
+
+/* Hero no longer needs a full-screen stage now that the decorations are gone */
+.s-opening {
+  min-height: auto;
+}
+
+.s-opening__inner {
+  padding-bottom: 120px;
+}
+
+/* Flat brand mark — no glow */
+.lpr-primary {
+  filter: none;
+}
